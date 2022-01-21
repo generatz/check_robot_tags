@@ -1,4 +1,4 @@
- check_robot_tags.awk
+# check_robot_tags.awk
 # Author: Generic Ratslaugh
 #
 # For robot framework test suite files:
