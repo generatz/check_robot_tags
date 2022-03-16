@@ -6,10 +6,11 @@
 # When the two are not equivalent, the script prints the filename,
 # the test name, and the tag.
 # 
-# Consider the following 6-line file named hello_world.robot:
+# Consider the following 7-line file named hello_world.robot:
 ## *** Settings ***
 ## Documentation     A hello world
 ##
+## *** Test Cases ***
 ## Hello World Test Case
 ##     [Tags]  Hello_World_Tests_Case
 ##     Log To Console            Hello Robot World!
@@ -33,15 +34,16 @@ BEGIN {
 
 {
   if (index($0, "*") == 1) {
-    if (index($0, "** Test Cases **") > 0) {
+    # Sections header must start with one asterisk; words are case insensitive
+    if (index(tolower($0), "test case") > 0) {
       #print "Test Cases found"
       in_tests = 1
     }
-    if (index($0, "** Tasks **") > 0) {
+    if (index(tolower($0), "task") > 0) {
       #print "Tasks found"
       in_tests = 1
     }
-    if (index($0, "** Keywords **") > 0) {
+    if (index(tolower($0), "keyword") > 0) {
       #print "Keywords found"
       in_tests = 0
     }
