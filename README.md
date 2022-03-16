@@ -11,6 +11,7 @@ Consider the following file named hello_world.robot:
 *** Settings ***
 Documentation     A hello world
 
+*** Test Cases ***
 Hello World Test Case
     [Tags]  Hello_World_Tests_Case
     Log To Console            Hello Robot World!
